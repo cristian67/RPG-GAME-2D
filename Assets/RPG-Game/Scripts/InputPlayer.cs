@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InputPlayer : MonoBehaviour
 {
-   [HideInInspector] public bool _skill1;
-   [HideInInspector] public bool _skill2;
-   [HideInInspector] public bool _attack;
-   [HideInInspector] public bool _inventory;
-   [HideInInspector] public bool _catch;
+   [HideInInspector] public bool _skill1{get;private set;}          
+   [HideInInspector] public bool _skill2{get;private set;}
+   [HideInInspector] public bool _attack{get;private set;}
+   [HideInInspector] public bool _inventory{get;private set;}
+   [HideInInspector] public bool _catch{get;private set;}
 
-   [HideInInspector] public float _horizontal;
-   [HideInInspector] public float _vertical;
+   [HideInInspector] public float _horizontal{get;private set;}
+   [HideInInspector] public float _vertical{get;private set;}
 
 
     // Start is called before the first frame update

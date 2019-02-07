@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator _anim;
     private bool _isBack;
     private SpriteRenderer _sprite;
+    int RunHashCode;
 
     [SerializeField]
     private float _velocity;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         rgb2D       = GetComponent<Rigidbody2D>();
         _anim       = GetComponent<Animator>();
         _sprite     = GetComponent<SpriteRenderer>();
+        RunHashCode = Animator.StringToHash("IsRun");
     }
     
     void FixedUpdate()
@@ -42,6 +44,11 @@ public class PlayerController : MonoBehaviour
         if (inputPlayer._horizontal != 0 || inputPlayer._vertical != 0)
         {
             SetXYAnimator();
+            _anim.SetBool(RunHashCode, true);
+        }
+        else
+        {
+            _anim.SetBool(RunHashCode, false);
         }
 
     }
