@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        SplitSprite();
+        //SplitSprite();
 
         //Movimiento Vertical y horizontal
         if (inputPlayer._horizontal != 0 || inputPlayer._vertical != 0)
@@ -48,7 +48,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _anim.SetBool(RunHashCode, false);
+            _anim.SetBool(
+                RunHashCode, false);
         }
 
     }
@@ -59,18 +60,18 @@ public class PlayerController : MonoBehaviour
         _anim.SetFloat("Y", inputPlayer._vertical);
     }
 
-    private void SplitSprite()
-    {
-        // Flip del sprite
-        if (inputPlayer._horizontal > 0 && Mathf.Abs(inputPlayer._vertical) < Mathf.Abs(inputPlayer._horizontal))
-        {
-            _sprite.flipX = true;
-        }
-        else if (inputPlayer._horizontal != 0)
-        {
-            _sprite.flipX = false;
-        }
-    }
+    //private void SplitSprite()
+    //{
+    //    // Flip del sprite
+    //    if (inputPlayer._horizontal > 0 && Mathf.Abs(inputPlayer._vertical) <= Mathf.Abs(inputPlayer._horizontal))
+    //    {
+    //        _sprite.flipX = true;
+    //    }
+    //    else if (inputPlayer._horizontal != 0)
+    //    {
+    //        _sprite.flipX = false;
+    //    }
+    //}
 
   
 }
