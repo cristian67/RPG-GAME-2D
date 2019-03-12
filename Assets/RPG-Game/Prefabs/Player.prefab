@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 2737340353980155239}
   - component: {fileID: 2737340353980155232}
   - component: {fileID: 2737340353980155237}
-  - component: {fileID: 2737340353980155238}
   - component: {fileID: 2737340353980155259}
   - component: {fileID: 2737340353980155236}
   - component: {fileID: 2737340353980155258}
+  - component: {fileID: 2212935115630807904}
+  - component: {fileID: 3371383274948534949}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -96,19 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7a30f89e6a3644d84907005b492d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2737340353980155238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2737340353980155233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c4ea187a65b094e8e98a8256f03253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _velocity: 10
 --- !u!50 &2737340353980155259
 Rigidbody2D:
   serializedVersion: 4
@@ -175,3 +163,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2212935115630807904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737340353980155233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c4ea187a65b094e8e98a8256f03253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3371383274948534949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737340353980155233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e0cb495bc889244912e6d86af5c511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 6
+  attack: 1

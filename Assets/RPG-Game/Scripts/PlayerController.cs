@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Attributes))]
 public class PlayerController : MonoBehaviour
 {
+    // Descontinuada 
+    //[SerializeField]
+    //private float _velocity;
+
+    //Fisicas
     private InputPlayer inputPlayer;
     private Rigidbody2D rgb2D;
     private Transform _transform;
@@ -14,33 +21,59 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _sprite;
     int RunHashCode;
 
-    [SerializeField]
-    private float _velocity;
+    //Atributos
+    private Attributes attributePlayer;
+    private Attacker attacker;
 
     // Start is called before the first frame update
     void Start()
     {
         inputPlayer = GetComponent<InputPlayer>();
-        _transform  = GetComponent<Transform>();
-        rgb2D       = GetComponent<Rigidbody2D>();
-        _anim       = GetComponent<Animator>();
-        _sprite     = GetComponent<SpriteRenderer>();
+        rgb2D = GetComponent<Rigidbody2D>();
+
+        _transform = GetComponent<Transform>();
+        _anim = GetComponent<Animator>();
+        _sprite = GetComponent<SpriteRenderer>();
+
         RunHashCode = Animator.StringToHash("IsRun");
+        attributePlayer = GetComponent<Attributes>();
+        attacker = GetComponent<Attacker>();
     }
-    
+
+
+    //Fisicas siempre con el Fixed
     void FixedUpdate()
     {
-        //Movement
-        Vector2 _VelocityVector = new Vector2(inputPlayer._horizontal, inputPlayer._vertical) * _velocity;
-        rgb2D.velocity = _VelocityVector;
+        //Mover al jugador
+        if (_anim.GetBool("Attacking"))
+        {
+            rgb2D.velocity = Vector2.zero;
+        }
+        else
+        {
+            Vector2 _VelocityVector = new Vector2(inputPlayer._horizontal, inputPlayer._vertical) * attributePlayer.velocity;
+            rgb2D.velocity = _VelocityVector;
+        }
     }
 
     void Update()
     {
 
-        //SplitSprite();
+        //Animacion Vertical y horizontal
+        MoveLookAt();
 
-        //Movimiento Vertical y horizontal
+        //Input de Ataque 
+        if (Input.GetButtonDown("Attack"))
+        {
+            _anim.SetBool("Attacking", true);
+        }
+
+        
+
+    }
+
+    private void MoveLookAt()
+    {
         if (inputPlayer._horizontal != 0 || inputPlayer._vertical != 0)
         {
             SetXYAnimator();
@@ -48,10 +81,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _anim.SetBool(
-                RunHashCode, false);
+            _anim.SetBool(RunHashCode, false);
         }
-
     }
 
     private void SetXYAnimator()
@@ -59,6 +90,17 @@ public class PlayerController : MonoBehaviour
         _anim.SetFloat("X", inputPlayer._horizontal);
         _anim.SetFloat("Y", inputPlayer._vertical);
     }
+
+
+
+    private void AttackController()
+    {
+        attacker.Attack(inputPlayer.LookDirection, attributePlayer.attack);
+        _anim.SetBool("Attacking", false);
+
+
+    }
+
 
     //private void SplitSprite()
     //{
