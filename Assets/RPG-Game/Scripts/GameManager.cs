@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Transform  playerSpawnPoint;
     public PlayerController player { get; private set; }
 
+    public Transform proyectilContainer;
+
     //Singleton
     private static  GameManager instance;
     public  static  GameManager Instance

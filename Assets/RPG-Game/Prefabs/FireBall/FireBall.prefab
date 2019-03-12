@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8215526286010036620}
   - component: {fileID: 8215526286010036621}
   - component: {fileID: 8215526286010036618}
+  - component: {fileID: 7250167727000009840}
+  - component: {fileID: 5688965044738039343}
+  - component: {fileID: 3022764286758436120}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -4701,6 +4704,59 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!50 &7250167727000009840
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215526286010036619}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &5688965044738039343
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215526286010036619}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.19, y: 6.3900013}
+  m_Direction: 0
+--- !u!114 &3022764286758436120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215526286010036619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f135da091633e8b4eb666999c4b75f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialVelocity: 10
+  InitialDirection: {x: 1, y: 0}
+  danger: 1
+  ObjetiveTag: Player
 --- !u!1 &8215526286117787975
 GameObject:
   m_ObjectHideFlags: 0
