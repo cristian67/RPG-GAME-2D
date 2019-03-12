@@ -55,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -131,17 +131,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 80
-        height: 80
+        y: 2
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfc9550b32bd8784baaaabece19f4f4f
+      spriteID: 0ffe74179a9d52440bf5e84fbeeb3b4a
       vertices: []
       indices: 
       edges: []
@@ -150,18 +150,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 80
-        height: 80
+        x: 79
+        y: 1
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a52ffae48f0db449b93689811d90278
+      spriteID: 093c284e83bda7646a389e0c64513181
       vertices: []
       indices: 
       edges: []
@@ -170,18 +170,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 80
-        height: 80
+        x: 157
+        y: 2
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eba2faabea1bbe8418f37a868108fee7
+      spriteID: 64b3a869c90380645b1da88a54e3da40
       vertices: []
       indices: 
       edges: []
@@ -190,18 +190,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_3
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
-        width: 80
-        height: 80
+        x: 239
+        y: 2
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c4925257f496194291d979aa0cd93d7
+      spriteID: 509e3ddb2974e3242956a6558dba8c8c
       vertices: []
       indices: 
       edges: []
@@ -210,18 +210,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_4
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 80
-        height: 80
+        x: 319
+        y: 1
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445ee83e58face1418c5054ca0810c2e
+      spriteID: b239a29e39ab2e24aa317d0a72b1a767
       vertices: []
       indices: 
       edges: []
@@ -230,18 +230,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_5
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 80
-        height: 80
+        x: 409
+        y: 2
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 922163ae63894f645bdb74aaaf1776d6
+      spriteID: 08a12f1d9850503429010010be0bb328
       vertices: []
       indices: 
       edges: []
@@ -250,18 +250,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_6
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 80
-        height: 80
+        x: 481
+        y: 1
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2245049d88e7268478a9e22823178f08
+      spriteID: d2cf4ca49780f984faf04d3a0c64ca18
       vertices: []
       indices: 
       edges: []
@@ -270,18 +270,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_7
       rect:
         serializedVersion: 2
-        x: 560
-        y: 0
-        width: 80
-        height: 80
+        x: 562
+        y: 2
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7b4e5ed5ee428249b08181c204f249f
+      spriteID: 3d95df82638e2254f854eaadf9574a46
       vertices: []
       indices: 
       edges: []
@@ -290,18 +290,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_8
       rect:
         serializedVersion: 2
-        x: 640
+        x: 642
         y: 0
-        width: 80
-        height: 80
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f75643fe73e2742a292fc68f60e16a
+      spriteID: 4b1d208fc57aef141be323ea6bbcf7dd
       vertices: []
       indices: 
       edges: []
@@ -310,18 +310,18 @@ TextureImporter:
       name: knight-3-improved-slash-animation_9
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 80
-        height: 80
+        x: 721
+        y: 1
+        width: 42
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 926837da93d6a1c439584dbe09173ac8
+      spriteID: 423e3fee8f60b97489fb3d1e0aa44311
       vertices: []
       indices: 
       edges: []

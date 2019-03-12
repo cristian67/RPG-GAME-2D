@@ -2,21 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attributes : MonoBehaviour
+[CreateAssetMenu(menuName = "ObjetosEscriptables/Atributos")]
+public class Attributes : ScriptableObject
 {
+    [Tooltip("Velocidad de movimiento")]
     public int velocity;
-    public int attack; 
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Tooltip("Cantidad de daño que provoca")]
+    public int attack; 
 }

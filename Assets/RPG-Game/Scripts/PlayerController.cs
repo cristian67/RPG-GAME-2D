@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(Attributes))]
+//[RequireComponent(typeof(Attributes))]
 public class PlayerController : MonoBehaviour
 {
     // Descontinuada 
@@ -22,22 +22,21 @@ public class PlayerController : MonoBehaviour
     int RunHashCode;
 
     //Atributos
-    private Attributes attributePlayer;
+    public Attributes attributePlayer;
     private Attacker attacker;
 
     // Start is called before the first frame update
     void Start()
     {
         inputPlayer = GetComponent<InputPlayer>();
-        rgb2D = GetComponent<Rigidbody2D>();
+        rgb2D       = GetComponent<Rigidbody2D>();
 
         _transform = GetComponent<Transform>();
-        _anim = GetComponent<Animator>();
-        _sprite = GetComponent<SpriteRenderer>();
+        _anim      = GetComponent<Animator>();
+        _sprite    = GetComponent<SpriteRenderer>();
 
-        RunHashCode = Animator.StringToHash("IsRun");
-        attributePlayer = GetComponent<Attributes>();
-        attacker = GetComponent<Attacker>();
+        RunHashCode     = Animator.StringToHash("IsRun");
+        attacker        = GetComponent<Attacker>();
     }
 
 

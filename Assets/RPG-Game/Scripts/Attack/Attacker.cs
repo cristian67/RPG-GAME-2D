@@ -13,9 +13,13 @@ public class Attacker : MonoBehaviour
     private Collider2D[] attackColliders = new Collider2D[12];
     private ContactFilter2D attackFilter;
 
+    private void Awake()
+    {
+        attackFilter.useLayerMask = true;
+    }
 
     private void Start(){
-        attackFilter.layerMask = attackLayer;
+        attackFilter.layerMask    = attackLayer;
     }
 
     private void Update() {

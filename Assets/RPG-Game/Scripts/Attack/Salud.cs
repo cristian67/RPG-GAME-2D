@@ -22,9 +22,15 @@ public class Salud : MonoBehaviour
         {
 
             actualSalud = (value > 0 && value <= salud) ? value : 0;
+
             if (value == 0 || value < 0)
             {
-                Destroy(gameObject);
+                actualSalud = 0;
+                if (AtDie != null)
+                {
+                    AtDie.Invoke();
+                    //Destroy(gameObject);
+                }
             }
             if (value > salud)
             {
@@ -49,5 +55,10 @@ public class Salud : MonoBehaviour
     public void UpdateActualSalud(int amount)
     {
         ActualSalud += amount;
+    }
+
+    private void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 }
