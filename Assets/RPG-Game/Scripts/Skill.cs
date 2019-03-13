@@ -34,6 +34,10 @@ public class Skill : MonoBehaviour
         newProyectil.InitialVelocity  = velocity;
         newProyectil.InitialDirection = direction;
         newProyectil.danger           = danger;
+
+        //angulo de rotacion
+        float angleRotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        newProyectil.transform.Rotate(0, 0, angleRotation);
     }
 
    
