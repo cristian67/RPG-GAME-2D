@@ -41,6 +41,9 @@ public class EnemyAI : Enemy
         attackHash = Animator.StringToHash("Attack");
         deathHash  = Animator.StringToHash("Death");
 
+        //Instanciar Puff
+        Instantiate(puff, transform);
+
     }
 
     // Update is called once per frame

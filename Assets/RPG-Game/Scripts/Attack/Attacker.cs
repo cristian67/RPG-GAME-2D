@@ -7,22 +7,27 @@ public class Attacker : MonoBehaviour
     public float     gap = 1f;
     public Vector2   hitBox = new Vector2(1,1);
     public LayerMask attackLayer;
+    public GameObject flash;
 
     private Vector2 gapAttackVector;
     private Vector2 pointA, pointB;
     private Collider2D[] attackColliders = new Collider2D[12];
     private ContactFilter2D attackFilter;
+    private GeneratorText generatorTextHit; 
 
     private void Awake()
     {
         attackFilter.useLayerMask = true;
     }
 
-    private void Start(){
-        attackFilter.layerMask    = attackLayer;
+    private void Start()
+    {
+        attackFilter.layerMask      = attackLayer;
+        generatorTextHit            = GetComponent<GeneratorText>();
     }
 
-    private void Update() {
+    private void Update()
+    {
 
         Debug.DrawLine(transform.position, (Vector2)transform.position + gapAttackVector, Color.green);
         Debug.DrawLine(pointA, pointB, Color.red);
@@ -46,10 +51,40 @@ public class Attacker : MonoBehaviour
         for (int i = 0; i<attackedElements; i++)
         {
             attackedObject = attackColliders[i].gameObject;
-            
+
             //Objecto con script Attackable
             if (attackedObject.gameObject.GetComponent<Attackable>())
-                attackedObject.gameObject.GetComponent<Attackable>().ReceiveAttack(danger,attackDirection);
+            {
+                attackedObject.gameObject.GetComponent<Attackable>().ReceiveAttack(danger, attackDirection);
+                InvokeFlash(attackedObject);
+
+                GenerateTextHit(danger, attackedObject);
+
+            }
+
+        }
+    }
+
+    private void GenerateTextHit(int danger, GameObject attackedObject)
+    {
+        if (generatorTextHit)
+        {
+            generatorTextHit.CreateTextHit(generatorTextHit.textHit,
+                                           danger,
+                                           attackedObject.transform,
+                                           0.5f,
+                                           Color.white,
+                                           generatorTextHit.rangeXDefault,
+                                           generatorTextHit.rangeYDefault,
+                                           2f);
+        }
+    }
+
+    private void InvokeFlash(GameObject attackedObject)
+    {
+        if (flash != null)
+        {
+            Instantiate(flash, attackedObject.transform);
         }
     }
 

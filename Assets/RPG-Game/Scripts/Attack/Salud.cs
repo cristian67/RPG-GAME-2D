@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Salud : MonoBehaviour
 {
     //Variables
     public  int  salud;
     private int actualSalud;
+
+    //barras de salud - CAMBIANDO LA ESCLA - METODO DESCONTINUADO
+    //public Transform saludBar;
+
+    public Image saludBar;
 
     public UnityEvent AtDie;
 
@@ -55,7 +61,22 @@ public class Salud : MonoBehaviour
     public void UpdateActualSalud(int amount)
     {
         ActualSalud += amount;
+        
+        UpdateSaludBar();
+        
     }
+
+
+    private void UpdateSaludBar()
+    {
+        //Castear el valor por que es un 'int' 
+        //Vector3 scale       = new Vector3((float)actualSalud / salud, 1, 1);
+        if (saludBar)
+        {
+            saludBar.fillAmount = (float)actualSalud / salud;
+        }
+    }
+
 
     private void DestroyGameObject()
     {

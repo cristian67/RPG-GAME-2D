@@ -62,12 +62,15 @@ public class PlayerController : MonoBehaviour
         MoveLookAt();
 
         //Input de Ataque 
-        if (Input.GetButtonDown("Attack"))
+        if (inputPlayer._attack)
         {
             _anim.SetBool("Attacking", true);
         }
 
-        
+        if (inputPlayer._inventory)
+        {
+            MenuPanel.instance.OpenCloseInventory();
+        }
 
     }
 

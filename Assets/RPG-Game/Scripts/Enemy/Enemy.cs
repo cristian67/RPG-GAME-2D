@@ -7,16 +7,7 @@ public class Enemy : MonoBehaviour
     public Attributes attributes;
     public string alias;
     public int exp;
+    public GameObject puff;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }
