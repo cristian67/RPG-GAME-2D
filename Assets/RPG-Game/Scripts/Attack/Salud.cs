@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class Salud : MonoBehaviour
 {
     //Variables
-    public  int  salud;
+    public int salud;
+
     private int actualSalud;
 
     //barras de salud - CAMBIANDO LA ESCLA - METODO DESCONTINUADO
@@ -16,6 +17,11 @@ public class Salud : MonoBehaviour
     public Image saludBar;
 
     public UnityEvent AtDie;
+
+    public int ModificatorSalud;
+
+    //Propiedad para la salud
+    public int mySalud { get { return salud + ModificatorSalud; } }
 
 
     //Propiedad
@@ -27,20 +33,21 @@ public class Salud : MonoBehaviour
         set
         {
 
-            actualSalud = (value > 0 && value <= salud) ? value : 0;
+            actualSalud = (value > 0 && value <= mySalud) ? value : 0;
 
             if (value == 0 || value < 0)
-            {
+            { 
                 actualSalud = 0;
+                gameObject.layer = 11;
                 if (AtDie != null)
                 {
                     AtDie.Invoke();
                     //Destroy(gameObject);
                 }
             }
-            if (value > salud)
+            if (value > mySalud)
             {
-                actualSalud = salud;
+                actualSalud = mySalud;
             }
         }
     }
@@ -49,14 +56,9 @@ public class Salud : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActualSalud = salud;
+        ActualSalud = mySalud;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdateActualSalud(int amount)
     {
@@ -73,10 +75,16 @@ public class Salud : MonoBehaviour
         //Vector3 scale       = new Vector3((float)actualSalud / salud, 1, 1);
         if (saludBar)
         {
-            saludBar.fillAmount = (float)actualSalud / salud;
+            saludBar.fillAmount = (float)actualSalud / mySalud;
         }
     }
 
+
+    public void ModifySaludBase(int amount)
+    {
+        salud += amount;
+        UpdateSaludBar();
+    }
 
     private void DestroyGameObject()
     {

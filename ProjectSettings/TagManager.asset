@@ -15,8 +15,8 @@ TagManager:
   - 
   - Interactive
   - Player
-  - 
-  - 
+  - Minimap
+  - Death
   - 
   - 
   - 
@@ -49,4 +49,10 @@ TagManager:
     locked: 0
   - name: Elementos
     uniqueID: 1434246081
+    locked: 0
+  - name: FX
+    uniqueID: 1956823983
+    locked: 0
+  - name: Text
+    uniqueID: 3842752635
     locked: 0

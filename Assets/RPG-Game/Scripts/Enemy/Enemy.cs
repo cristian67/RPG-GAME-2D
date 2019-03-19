@@ -6,8 +6,12 @@ public class Enemy : MonoBehaviour
 {
     public Attributes attributes;
     public string alias;
-    public int exp;
+    public int expEnemy;
     public GameObject puff;
 
-  
+
+    public void GiveExp()
+    {
+        GameManager.Instance.player.GetComponent<ExperienceLevel>().exp += expEnemy;
+    }
 }

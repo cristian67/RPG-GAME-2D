@@ -24,6 +24,14 @@ public class PlayerController : MonoBehaviour
     //Atributos
     public Attributes attributePlayer;
     private Attacker attacker;
+    private Salud salud;
+
+    //Nivel de Exp
+    private ExperienceLevel experienceLevel;
+
+    //Mascara
+    public LayerMask layerMaskInteration;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +45,13 @@ public class PlayerController : MonoBehaviour
 
         RunHashCode     = Animator.StringToHash("IsRun");
         attacker        = GetComponent<Attacker>();
+
+        salud = GetComponent<Salud>();
+
+        experienceLevel = GetComponent<ExperienceLevel>();
+
+        //Inicializar texto de paneles
+        PanelAttribute.Instance.UpdateTextAtributte(attributePlayer, salud, experienceLevel);
     }
 
 
@@ -103,6 +118,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public RaycastHit2D[] Interact()
+    {
+        RaycastHit2D[] circleCast = Physics2D.CircleCastAll(transform.position, 
+                                                            GetComponent<CapsuleCollider2D>().size.x, 
+                                                            inputPlayer.LookDirection.normalized,
+                                                            2f,
+                                                            layerMaskInteration);
+        if (circleCast != null)
+        {
+            return circleCast;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 
     //private void SplitSprite()
     //{
@@ -117,5 +149,5 @@ public class PlayerController : MonoBehaviour
     //    }
     //}
 
-  
+
 }
