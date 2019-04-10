@@ -6,14 +6,14 @@ using UnityEngine.EventSystems;
 
 public class Interactive : MonoBehaviour, IPointerDownHandler {
 
-    private Collider2D myCollider;
-    public  UnityEvent OnInteractive;
-    private PlayerController player;
+    public    UnityEvent OnInteractive;
+    protected PlayerController player;
+    protected BoxCollider2D myCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        myCollider = GetComponent<Collider2D>();
+        myCollider = GetComponent<BoxCollider2D>();
 
         player = GameManager.Instance.player.GetComponent<PlayerController>();
     }

@@ -8,7 +8,9 @@ public class Attacker : MonoBehaviour
     public Vector2   hitBox = new Vector2(1,1);
     public LayerMask attackLayer;
     public GameObject flash;
+    public AudioClip attackSound;
 
+    private AudioSource _audioSource;
     private Vector2 gapAttackVector;
     private Vector2 pointA, pointB;
     private Collider2D[] attackColliders = new Collider2D[12];
@@ -24,6 +26,7 @@ public class Attacker : MonoBehaviour
     {
         attackFilter.layerMask      = attackLayer;
         generatorTextHit            = GetComponent<GeneratorText>();
+        _audioSource                = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -47,6 +50,11 @@ public class Attacker : MonoBehaviour
         //Solapar y contar elementos goleados (devuelve la cantidad)
         int attackedElements = Physics2D.OverlapArea(pointA, pointB, attackFilter, attackColliders);
         //Debug.Log(attackedElements);
+
+
+        //PlaySound
+        _audioSource.clip = attackSound;
+        _audioSource.Play();
 
         for (int i = 0; i<attackedElements; i++)
         {

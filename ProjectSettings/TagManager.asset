@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Player
   - Minimap
   - Death
-  - 
+  - Object
   - 
   - 
   - 
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: FX
     uniqueID: 1956823983
+    locked: 0
+  - name: Drop
+    uniqueID: 2251292959
     locked: 0
   - name: Text
     uniqueID: 3842752635

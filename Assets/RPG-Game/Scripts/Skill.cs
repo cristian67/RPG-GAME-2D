@@ -40,5 +40,11 @@ public class Skill : MonoBehaviour
         newProyectil.transform.Rotate(0, 0, angleRotation);
     }
 
-   
+
+    public void Dash(Vector2 directionDash, Rigidbody2D rigidbody2D)
+    {
+        Vector2 velocityDirection = directionDash.normalized * 20;
+        rigidbody2D.velocity = velocityDirection;
+    }
+
 }

@@ -4756,7 +4756,7 @@ MonoBehaviour:
   InitialVelocity: 7
   InitialDirection: {x: 1, y: 0}
   danger: 1
-  ObjetiveTag: Player
+  ObjetiveTag: Enemy
 --- !u!1 &8215526286117787975
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,16 @@ public class PlayerController : MonoBehaviour
     //Mascara
     public LayerMask layerMaskInteration;
 
+    //Skill
+    private Skill _skill;
+    private TrailRenderer _trailRenderer;
+    private float dashCoolDown = 0; // Tiempo de espera
+    private bool UsedDash = false;
+    public Proyectil _proyectil;
+
+
+    //Sound
+    private SoundFoot soundFoot;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +63,13 @@ public class PlayerController : MonoBehaviour
 
         //Inicializar texto de paneles
         PanelAttribute.Instance.UpdateTextAtributte(attributePlayer, salud, experienceLevel);
+
+        _skill = GetComponent<Skill>();
+        _trailRenderer = GetComponent<TrailRenderer>();
+        _trailRenderer.enabled = false;
+
+
+        soundFoot = GetComponentInChildren<SoundFoot>();
     }
 
 
@@ -63,10 +81,22 @@ public class PlayerController : MonoBehaviour
         {
             rgb2D.velocity = Vector2.zero;
         }
-        else
+        else if((inputPlayer._horizontal != 0 || inputPlayer._vertical != 0) && !UsedDash)
         {
             Vector2 _VelocityVector = new Vector2(inputPlayer._horizontal, inputPlayer._vertical) * attributePlayer.velocity;
-            rgb2D.velocity = _VelocityVector;
+            rgb2D.velocity          = _VelocityVector;
+        }
+
+        //-- Habilidades --// 
+        if (inputPlayer._skill2)
+        {
+            UsedDash = true;
+            _skill.Dash(inputPlayer.LookDirection, rgb2D);
+            ActivateOrDeactivateTrailRender();
+        }
+        if (inputPlayer._skill1)
+        {
+            _skill.ProyectilShoot(_proyectil, 10f, inputPlayer.LookDirection, attributePlayer.attack);
         }
     }
 
@@ -87,6 +117,25 @@ public class PlayerController : MonoBehaviour
             MenuPanel.instance.OpenCloseInventory();
         }
 
+        UpdateDashCoolDown();
+        Debug.Log(_trailRenderer.time);
+
+    }
+
+    private void UpdateDashCoolDown()
+    {
+        if (UsedDash)
+        {
+            dashCoolDown += Time.deltaTime;
+
+            if (dashCoolDown > 1f)
+            {
+                ActivateOrDeactivateTrailRender();
+                dashCoolDown = 0;
+                UsedDash = false;
+            }
+
+        } 
     }
 
     private void MoveLookAt()
@@ -118,6 +167,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+
+    private void ActivateOrDeactivateTrailRender()
+    {
+        if (_trailRenderer.enabled)
+        {
+            _trailRenderer.enabled = false;
+        }
+        else
+        {
+            _trailRenderer.enabled = true;
+        }
+    }
+
+
+    private void SetFoot()
+    {
+        soundFoot.PlaySound();
+    }
+
+
     public RaycastHit2D[] Interact()
     {
         RaycastHit2D[] circleCast = Physics2D.CircleCastAll(transform.position, 
@@ -134,6 +204,8 @@ public class PlayerController : MonoBehaviour
             return null;
         }
     }
+
+
 
 
     //private void SplitSprite()

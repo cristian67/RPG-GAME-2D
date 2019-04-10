@@ -69,7 +69,7 @@ public class Salud : MonoBehaviour
     }
 
 
-    private void UpdateSaludBar()
+    public void UpdateSaludBar()
     {
         //Castear el valor por que es un 'int' 
         //Vector3 scale       = new Vector3((float)actualSalud / salud, 1, 1);

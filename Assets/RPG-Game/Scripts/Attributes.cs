@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -60,5 +61,32 @@ public class Attributes : ScriptableObject
     public void ModificatorSalud(Salud salud, int amount)
     {
         salud.ModificatorSalud += amount;
+    }
+
+
+    public void UpdateEquip(List<Kit> kits)
+    {
+        ResetModificator();
+        foreach (Kit kit in kits)
+        {
+            ModificatorVelocity += kit.velocity;
+            ModificatorAttack += kit.attack;
+
+            GameManager.Instance.player.GetComponent<Salud>().ModificatorSalud += kit.salud;
+        }
+
+        PanelAttribute.Instance.UpdateTextAtributte(this, 
+                                                    GameManager.Instance.player.GetComponent<Salud>(), 
+                                                    GameManager.Instance.player.GetComponent<ExperienceLevel>());
+
+        GameManager.Instance.player.GetComponent<Salud>().UpdateSaludBar(); 
+    }
+
+    private void ResetModificator()
+    {
+        ModificatorAttack   = 0;
+        ModificatorVelocity = 0;
+        GameManager.Instance.player.GetComponent<Salud>().ModificatorSalud = 0;
+
     }
 }
