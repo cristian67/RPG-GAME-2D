@@ -18,11 +18,11 @@ public class Interactive : MonoBehaviour, IPointerDownHandler {
         player = GameManager.Instance.player.GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        OnInteractive.Invoke();
-    }
+    //// Update is called once per frame SOLO TESTEO
+    //void Update()
+    //{
+    //    OnInteractive.Invoke();
+    //}
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -44,5 +44,6 @@ public class Interactive : MonoBehaviour, IPointerDownHandler {
     public virtual void Interaction()
     {
         Debug.Log("Interaccion "+ gameObject.name);
+        OnInteractive?.Invoke();
     }
 }

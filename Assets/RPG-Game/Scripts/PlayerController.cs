@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
 
         UpdateDashCoolDown();
-        Debug.Log(_trailRenderer.time);
+        //Debug.Log(_trailRenderer.time);
 
     }
 
